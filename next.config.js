@@ -1,6 +1,7 @@
 const path = require("path");
 const withImages = require('next-images')
-const allowedImageWordPressDomain = new URL('http://127.0.0.1/wordpress').hostname
+const allowedImageWordPressDomain = new URL(process.env.NEXT_PUBLIC_WORDPRESS_URL).hostname
+console.log(process.env.NEXT_PUBLIC_WORDPRESS_URL);
 
 module.exports = {
     trailingSlash: true,
