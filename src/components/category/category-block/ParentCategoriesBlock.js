@@ -9,6 +9,9 @@ const ParentCategoriesBlock = ( props ) => {
 			{ productCategories.length ? (
 				productCategories.map( ( productCategory, index ) => <ProductCategoryBlock key={ productCategory?.id ?? index }  category={ productCategory }/> )
 			) : null }
+			{ productCategories.length ? (
+				productCategories.map( ( productCategory, index ) => <ProductCategoryBlock key={ productCategory?.id ?? index }  category={ productCategory }/> )
+			) : null }
 		</div>
 	)
 

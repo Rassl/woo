@@ -1,9 +1,20 @@
-import Layout from "../../src/components/Layout";
-import client from "../../src/components/ApolloClient";
-import Product from "../../src/components/Product";
-import {PRODUCT_BY_CATEGORY_SLUG, PRODUCT_CATEGORIES_SLUGS} from "../../src/queries/product-by-category";
+import Layout from "../../../src/components/Layout";
+import client from "../../../src/components/ApolloClient";
+import Product from "../../../src/components/Product";
+import {PRODUCT_BY_CATEGORY_SLUG, PRODUCT_CATEGORIES_SLUGS} from "../../../src/queries/product-by-category";
 import {isEmpty} from "lodash";
 import {useRouter} from "next/router";
+import ReactFullpage from "@fullpage/react-fullpage";
+import FullPage from "../../../src/components/full-page/full-page";
+import styled from "styled-components";
+
+const Title = styled.h3`
+	position: absolute;
+    width: 100%;
+    text-align: center;
+    z-index: 5;
+    padding: 8px;
+`;
 
 export default function CategorySingle( props ) {
 
@@ -19,12 +30,17 @@ export default function CategorySingle( props ) {
 
     return (
         <Layout>
-            <div className="product-categories-container container mx-auto my-32 px-4 xl:px-0">
-                { categoryName ? <h3 className="text-2xl mb-5 uppercase">{ categoryName }</h3> : '' }
-                <div className="product-categories grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
-                    { undefined !== products && products?.length ? (
+            <div className="">
+                {categoryName ? <Title className="text-2xl mb-5 uppercase">{categoryName}</Title> : '' }
+                <div className="product-categories">
+                    {/* { undefined !== products && products?.length ? (
                         products.map( product => <Product key={ product?.id } product={ product } /> )
-                    ) : ''}
+                    ) : ''} */}
+                    {products && products.length ? (
+                        <FullPage products={products} />
+                    ) : (
+                        null
+                    )}
                 </div>
             </div>
         </Layout>

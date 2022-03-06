@@ -17,7 +17,10 @@ const Layout = (props) => {
       <ApolloProvider client={client}>
         <div>
           <Head>
-            <title>Woocommerce React Theme</title>
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+            <link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Inter:wght@100&display=swap" rel="stylesheet" />
+            <title>Lulls pastry</title>
           </Head>
           <Header />
           {props.children}

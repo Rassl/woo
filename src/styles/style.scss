@@ -10,6 +10,9 @@ body {
 
 .header {
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+      // position: fixed;
+      // width: 100%;
+      // z-index: 1;
 }
 
 .banner {
@@ -86,9 +89,17 @@ body {
   height: 100%;
 }
 
+.footer {
+    color: #1b1b1b;
+    font-size: 30px;
+    background-image: linear-gradient(to right, #cae4c9 0%, #fcb69f 100%);
+}
+
 .main-title {
   position: relative;
   text-align: center;
+  background: #fdfbf6;
+  font-size: 40px;
   &:before {
     content: "";
     position: absolute;
@@ -96,7 +107,7 @@ body {
     left: 0;
     height: 2px;
     width: 50%;
-    background: #222;
+    background: #c9a74d;
     z-index: -1;
   }
   &:after {
@@ -106,13 +117,13 @@ body {
     right: 0;
     height: 2px;
     width: 50%;
-    background: #222;
+    background: #c9a74d;
     z-index: -1;
   }
 }
 
 .main-title-inner {
-  background: #fff;
+  // background: #fff;
   padding: 0 20px;
 }
 

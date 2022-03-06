@@ -8,6 +8,66 @@ import {AppContext} from "../context/AppContext";
 import {getFormattedCart} from "../../functions";
 import GET_CART from "../../queries/get-cart";
 import ADD_TO_CART from "../../mutations/add-to-cart";
+import styled from "styled-components";
+
+const StyledButton = styled.button`
+    position: relative;
+    color: #fff;
+    z-index: 2;
+    line-height: 40px;
+    padding: 0;
+    width: 160px;
+    height: 40px;
+    padding: 10px 25px;
+    border: 2px solid #fff;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    &:focus {
+        outline: none;
+    }
+    box-sizing: content-box;
+    font-size: 20px;
+    &:hover{
+    border: 2px solid transparent;
+    }
+    &:before,
+    &:after {
+    position: absolute;
+    content: "";
+    width: 0%;
+    height: 0%;
+    border: 2px solid;
+    z-index: -1;
+    transition: all 0.3s ease;
+    }
+    &:before {
+    top: 0;
+    left: 0;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    }
+    &:after{
+    bottom: 0;
+    right: 0;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: #fff;
+    border-right-color: #fff;
+    }
+    &:hover:before,
+    &:hover:after {
+        border-color: #fff;
+        height: 100%;
+        width: 100%;
+    }
+`;
 
 const AddToCart = (props) => {
 
@@ -74,24 +134,18 @@ const AddToCart = (props) => {
 						Buy now
                     </a>
                 ) :
-                <button
+                <StyledButton
 					disabled={addToCartLoading}
                     onClick={handleAddToCartClick}
-                    className={cx(
-                        'px-3 py-1 rounded-sm mr-3 text-sm border-solid border border-current',
-                        {'hover:bg-purple-600 hover:text-white hover:border-purple-600': !addToCartLoading},
-                        {'opacity-50 cursor-not-allowed': addToCartLoading}
-                    )}
                 >
 					{ addToCartLoading ? 'Adding to cart...' : 'Add to cart' }
-                </button>
+                </StyledButton>
             }
             {showViewCart ? (
                 <Link href="/cart">
-                    <button
-                        className="px-3 py-1 rounded-sm text-sm border-solid border border-current inline-block hover:bg-purple-600 hover:text-white hover:border-purple-600">View
-                        Cart
-                    </button>
+                    <StyledButton>
+                        View Cart
+                    </StyledButton>
                 </Link>
             ) : ''}
         </div>
