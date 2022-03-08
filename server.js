@@ -7,7 +7,7 @@ const hostname = 'localhost'
 console.log(process.env.NODE_ENV);
 console.log(process.env.port);
 const port = process.env.port || 80
-// when using middleware `hostname` and `port` must be provided below
+// when using middleware `hostname` and `port` must be provided belo
 const app = next({ dev, hostname, port })
 const handle = app.getRequestHandler()
 
