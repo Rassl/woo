@@ -6,7 +6,7 @@ const dev = process.env.NODE_ENV !== 'production'
 const hostname = 'localhost'
 console.log(process.env.NODE_ENV);
 console.log(process.env.port);
-const port = process.env.port || 80
+const port = process.env.port || 3000
 // when using middleware `hostname` and `port` must be provided belo
 const app = next({ dev, hostname, port })
 const handle = app.getRequestHandler()
